@@ -5,17 +5,6 @@
 
 
 /*
- * struct node - Node to be chained in a linked_list.
- *
- * @element - the element stored in this node
- * @next - the next node in the linked_list
- */
-struct node {
-    int element;
-    struct node *next;
-};
-
-/*
  * struct linked_list - A single linked integer list.
  */
 struct linked_list {

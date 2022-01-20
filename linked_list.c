@@ -4,6 +4,18 @@
 #include "linked_list.h"
 
 
+/*
+ * struct node - Node to be chained in a linked_list.
+ *
+ * @element - the element stored in this node
+ * @next - the next node in the linked_list
+ */
+struct node {
+    int element;
+    struct node *next;
+};
+
+
 void add(struct linked_list *list, int element) {
     struct node *node = malloc(sizeof(struct node));
 
