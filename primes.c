@@ -16,7 +16,7 @@ void print(int number, char* message) {
 
 
 int main() {
-	const int upper_bound = 10;
+	const int upper_bound = 100000;
 	struct linked_list *primes = malloc(sizeof(struct linked_list));
 	int count = 0;
 
