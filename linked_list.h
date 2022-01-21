@@ -19,8 +19,11 @@ void add(struct linked_list *list, int element);
 
 /*
  * any - Check if a condition f is satisfied by any element of a linked_list.
+ *
+ * A condition f is a function that takes an int element form the list as is first
+ * input and an int param as is second input and returns a bool.
  */
-bool any(struct linked_list *list, bool (*f)(int));
+bool any(struct linked_list *list, bool (*f)(int, int), int param);
 
 /*
  * free_elements - Free all elements of the linked_list.

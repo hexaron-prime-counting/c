@@ -5,22 +5,37 @@
 #include "linked_list.h"
 
 
-bool is_even(int number) {
-	return (number % 2 == 0);
+bool divides_below_sqrt(int prime, int number) {
+	return (prime * prime <= number && number % prime == 0);
 };
 
 
+void print(int number, char* message) {
+	printf("%d: %s\n", number, message);
+}
+
+
 int main() {
-	struct linked_list *list = malloc(sizeof(struct linked_list));
+	const int upper_bound = 10;
+	struct linked_list *primes = malloc(sizeof(struct linked_list));
+	int count = 0;
 
-	add(list, 3);
+	for (int p = 2; p < upper_bound; p++) {
+		/* check if p is prime */
+		bool is_prime = true;
 
-	if (any(list, is_even)) {
-		printf("The list CONTAINS an even element.\n");
-	} else {
-		printf("The list contains NO even element.\n");
+		if (any(primes, divides_below_sqrt, p)) {
+			is_prime = false;
+		}
+
+		if (is_prime) {
+			count++;
+			add(primes, p);
+		}
 	}
 
-	free_elements(list);
-	free(list);
+	printf("%d\n", count);
+
+	free_elements(primes);
+	free(primes);
 };

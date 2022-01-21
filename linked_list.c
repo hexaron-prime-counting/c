@@ -35,11 +35,11 @@ void add(struct linked_list *list, int element) {
     }
 };
 
-bool any(struct linked_list *list, bool (*f)(int)) {
+bool any(struct linked_list *list, bool (*f)(int, int), int param) {
     struct node *node = list->head;
 
     while (node != NULL) {
-        if ((*f)(node->element)) {
+        if ((*f)(node->element, param)) {
             return true;
         }
 
