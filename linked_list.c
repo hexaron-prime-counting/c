@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "linked_list.h"
 
@@ -33,7 +34,7 @@ void add(struct linked_list *list, int element) {
         tail->next = node;
         list->tail = node;
     }
-};
+}
 
 bool any(struct linked_list *list, bool (*f)(int, int), int param) {
     struct node *node = list->head;
@@ -47,7 +48,25 @@ bool any(struct linked_list *list, bool (*f)(int, int), int param) {
     }
 
     return false;
-};
+}
+
+void print(struct linked_list *list) {
+    struct node *node = list->head;
+
+    printf("[");
+
+    while (node != NULL) {
+        if (node->next == NULL) {
+            printf("%d", node->element);
+        } else {
+            printf("%d, ", node->element);
+        }
+
+        node = node->next;
+    }
+
+    printf("]\n");
+}
 
 void free_elements(struct linked_list *list) {
     struct node *node = list->head;
@@ -58,4 +77,4 @@ void free_elements(struct linked_list *list) {
         free(node);
         node = next_node;
     }
-};
+}

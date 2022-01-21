@@ -7,16 +7,11 @@
 
 bool divides_below_sqrt(int prime, int number) {
 	return (prime * prime <= number && number % prime == 0);
-};
-
-
-void print(int number, char* message) {
-	printf("%d: %s\n", number, message);
 }
 
 
 int main() {
-	const int upper_bound = 100000;
+	const int upper_bound = 20;
 	struct linked_list *primes = malloc(sizeof(struct linked_list));
 	int count = 0;
 
@@ -34,8 +29,10 @@ int main() {
 		}
 	}
 
-	printf("%d\n", count);
+	printf("Found %d primes below %d:\n", count, upper_bound);
+
+	print(primes);
 
 	free_elements(primes);
 	free(primes);
-};
+}

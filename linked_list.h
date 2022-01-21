@@ -25,6 +25,8 @@ void add(struct linked_list *list, int element);
  */
 bool any(struct linked_list *list, bool (*f)(int, int), int param);
 
+void print(struct linked_list *list);
+
 /*
  * free_elements - Free all elements of the linked_list.
  */
