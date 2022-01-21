@@ -19,10 +19,12 @@ _OBJS := primes.o linked_list.o
 # substitue % by ${OBJ_DIR}/% for each word in ${_OBJS}
 OBJS := ${patsubst %,${OBJ_DIR}/%,${_OBJS}}
 
-all: ${OBJS}
+all: ${BINARY}
+
+${BINARY}: ${OBJS}
 	${CC} ${OBJS} -o ${BINARY}
 
-run:
+run: ${BINARY}
 	./${BINARY}
 
 ${OBJ_DIR}/%.o: %.c
