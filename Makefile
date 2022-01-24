@@ -7,7 +7,7 @@
 # ```
 # In make there is no difference between $(...) and ${...}
 
-CC := gcc -Wall
+CC := gcc -O3 -Wall
 INCLUDES := -I ./
 
 BUILD_DIR := build
