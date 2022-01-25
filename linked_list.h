@@ -27,11 +27,11 @@ struct linked_list {
  */
 void add(struct linked_list *list, int element);
 
-void print(struct linked_list *list);
+void print(const struct linked_list *list);
 
 /*
  * free_elements - Free all elements of the linked_list.
  */
-void free_elements(struct linked_list *list);
+void free_elements(const struct linked_list *list);
 
 #endif /* _LINKED_LIST_H */

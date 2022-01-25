@@ -23,7 +23,7 @@ void add(struct linked_list *list, int element) {
     }
 }
 
-void print(struct linked_list *list) {
+void print(const struct linked_list *list) {
     struct node *node = list->head;
 
     printf("[");
@@ -41,7 +41,7 @@ void print(struct linked_list *list) {
     printf("]\n");
 }
 
-void free_elements(struct linked_list *list) {
+void free_elements(const struct linked_list *list) {
     struct node *node = list->head;
     struct node *next_node = NULL;
 
