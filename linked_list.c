@@ -13,11 +13,13 @@ void add(struct linked_list *list, int element) {
     struct node *tail = list->tail;
 
     if (tail == NULL) {
-        /* initialize the head and tail node of list */
+        /* initialize the length and the head and tail node of list */
+        list->length = 1;
         list->head = node;
         list->tail = node;
     } else {
-        /* update the next node of tail and the tail node of list */
+        /* update the length and the next node of tail and the tail node of list */
+        list->length++;
         tail->next = node;
         list->tail = node;
     }

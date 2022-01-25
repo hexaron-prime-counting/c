@@ -8,8 +8,8 @@
 int main() {
 	const int upper_bound = 100000000;
 	struct linked_list *primes = malloc(sizeof(struct linked_list));
+
 	add(primes, 2);
-	int count = 1;
 
 	for (int p = 3; p < upper_bound; p += 2) {
 		/* iterate over the nodes */
@@ -19,7 +19,6 @@ int main() {
 			const int q = node->element;
 
 			if (q * q > p) {
-				count++;
 				add(primes, p);
 				break;
 			}
@@ -32,7 +31,7 @@ int main() {
 		}
 	}
 
-	printf("Found %d primes below %d\n", count, upper_bound);
+	printf("Found %d primes below %d\n", primes->length, upper_bound);
 	// print(primes);
 
 	free_elements(primes);

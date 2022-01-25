@@ -18,6 +18,7 @@ struct node {
  * struct linked_list - A single linked integer list.
  */
 struct linked_list {
+    int length;
     struct node *head;
     struct node *tail;
 };
