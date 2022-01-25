@@ -22,12 +22,14 @@ OBJS := ${patsubst %,${OBJ_DIR}/%,${_OBJS}}
 all: ${BINARY}
 
 ${BINARY}: ${OBJS}
+	@mkdir -p ${BUILD_DIR}
 	${CC} ${OBJS} -o ${BINARY}
 
 run: ${BINARY}
 	./${BINARY}
 
 ${OBJ_DIR}/%.o: %.c
+	@mkdir -p ${OBJ_DIR}
 	${CC} -c $*.c -o ${OBJ_DIR}/$*.o ${INCLUDES}
 
 clean:
