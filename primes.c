@@ -5,13 +5,8 @@
 #include "linked_list.h"
 
 
-bool divides_below_sqrt(int prime, int number) {
-	return (prime * prime <= number && number % prime == 0);
-}
-
-
 int main() {
-	const int upper_bound = 20;
+	const int upper_bound = 100000000;
 	struct linked_list *primes = malloc(sizeof(struct linked_list));
 	int count = 0;
 
@@ -19,8 +14,22 @@ int main() {
 		/* check if p is prime */
 		bool is_prime = true;
 
-		if (any(primes, divides_below_sqrt, p)) {
-			is_prime = false;
+		/* iterate over the nodes */
+		struct node *node = primes->head;
+
+		while (node != NULL) {
+			int q = node->element;
+
+			if (q * q > p) {
+				break;
+			}
+
+			if (p % q == 0) {
+				is_prime = false;
+				break;
+			}
+
+			node = node->next;
 		}
 
 		if (is_prime) {
@@ -29,9 +38,7 @@ int main() {
 		}
 	}
 
-	printf("Found %d primes below %d:\n", count, upper_bound);
-
-	print(primes);
+	printf("Found %d primes below %d\n", count, upper_bound);
 
 	free_elements(primes);
 	free(primes);

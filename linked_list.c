@@ -1,20 +1,7 @@
-#include <stdbool.h>
 #include <stdlib.h>
 #include <stdio.h>
 
 #include "linked_list.h"
-
-
-/*
- * struct node - Node to be chained in a linked_list.
- *
- * @element - the element stored in this node
- * @next - the next node in the linked_list
- */
-struct node {
-    int element;
-    struct node *next;
-};
 
 
 void add(struct linked_list *list, int element) {
@@ -34,20 +21,6 @@ void add(struct linked_list *list, int element) {
         tail->next = node;
         list->tail = node;
     }
-}
-
-bool any(struct linked_list *list, bool (*f)(int, int), int param) {
-    struct node *node = list->head;
-
-    while (node != NULL) {
-        if ((*f)(node->element, param)) {
-            return true;
-        }
-
-        node = node->next;
-    }
-
-    return false;
 }
 
 void print(struct linked_list *list) {
