@@ -28,11 +28,12 @@ void print(struct linked_list *list) {
 
     printf("[");
 
-    while (node != NULL) {
-        if (node->next == NULL) {
-            printf("%d", node->element);
-        } else {
+    while (1) {
+        if (node->next != NULL) {
             printf("%d, ", node->element);
+        } else {
+            printf("%d", node->element);
+            break;
         }
 
         node = node->next;
