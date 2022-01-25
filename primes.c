@@ -16,7 +16,7 @@ int main() {
 		struct node *node = primes->head;
 
 		while (node != NULL) {
-			int q = node->element;
+			const int q = node->element;
 
 			if (q * q > p) {
 				count++;
