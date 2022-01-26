@@ -26,19 +26,15 @@ void add(struct linked_list *list, int element) {
 }
 
 void print(const struct linked_list *list) {
-    struct node *node = list->head;
-
     printf("[");
 
-    while (1) {
+    for (struct node *node = list->head; 1; node = node->next) {
         if (node->next != NULL) {
             printf("%d, ", node->element);
         } else {
             printf("%d", node->element);
             break;
         }
-
-        node = node->next;
     }
 
     printf("]\n");

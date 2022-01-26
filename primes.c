@@ -12,10 +12,7 @@ int main() {
 	add(primes, 2);
 
 	for (int p = 3; p < upper_bound; p += 2) {
-		/* iterate over the nodes */
-		struct node *node = primes->head;
-
-		while (node != NULL) {
+		for (struct node *node = primes->head; node != NULL; node = node->next) {
 			const int q = node->element;
 
 			if (q * q > p) {
@@ -26,13 +23,10 @@ int main() {
 			if (p % q == 0) {
 				break;
 			}
-
-			node = node->next;
 		}
 	}
 
 	printf("Found %d primes below %d\n", primes->length, upper_bound);
-	// print(primes);
 
 	free_elements(primes);
 	free(primes);
