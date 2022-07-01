@@ -1,11 +1,12 @@
-# Prime Counting
+# Compile
 
-Compile with
 ```
  $ make
 ```
 
-Compile (if necessary) and run with
+# Run
+
 ```
  $ make run
 ```
+also compiles if necessary.
